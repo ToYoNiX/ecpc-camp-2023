@@ -11,26 +11,20 @@ int main ()
     string s;
     cin >> s;
     
-    for (int i = 0; i < n; i++)
+    for (ll i = 0; i < n; i++)
     {
         mp[s[i]]++;
     }
-
-    if (mp.size() == 1)
-    {
-        cout << "Yes\n";
-        return 0;
-    }
-    else if (mp.size() == n)
-    {
-        cout << "No\n";
-        return 0;
-    }
-
-    for (ll i = 0; i < n; i++)
-    {
-        
-    }    
     
+    for (auto it = mp.begin(); it != mp.end(); it++)
+    {
+        if (it -> second >= 2)
+        {
+            cout << "Yes\n";
+            return 0;
+        }
+    }
+
+    cout << "No\n";
     return 0;
 }
