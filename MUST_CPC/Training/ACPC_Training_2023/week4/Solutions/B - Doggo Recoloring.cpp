@@ -15,16 +15,42 @@ int main ()
     {
         mp[s[i]]++;
     }
+
+    if (mp.size() == 1)
+    {
+        cout << "Yes\n";
+        return 0;
+    }
     
+    bool req1 = false, req2 = false;
+
     for (auto it = mp.begin(); it != mp.end(); it++)
     {
-        if (it -> second >= 2)
+        if (it -> second == 1)
         {
-            cout << "Yes\n";
-            return 0;
+            req1 = true;
+        }
+        else if (it -> second > 1)
+        {
+            req2 = true;
         }
     }
+    
+    if (req1)
+    {
+        if (req2)
+        {
+            cout << "Yes\n";
+        }
+        else
+        {
+            cout << "No\n";
+        }
+    }
+    else
+    {
+        cout << "Yes\n";
+    }
 
-    cout << "No\n";
     return 0;
 }
