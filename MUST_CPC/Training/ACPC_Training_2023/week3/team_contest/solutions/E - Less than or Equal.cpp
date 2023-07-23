@@ -1,5 +1,5 @@
 #include <iostream>
-#include <map>
+#include <algorithm>
 #define ll long long
 #define fastio ios_base::sync_with_stdio(false); ios::sync_with_stdio(false);cin.tie(0); cout.tie(0);
 using namespace std;
@@ -7,33 +7,25 @@ int main ()
 {
     fastio
     
-    ll n, m, bigest_number = 0;
+    ll n, m;
 
     cin >> n >> m;
-    map <ll, ll> mp;
+    ll a[n], b[m];
     for (int i = 0; i < n; i++)
     {
-        ll a;
-        cin >> a;
-        if (a > bigest_number)
-        {
-            bigest_number = a;
-        }
-        mp[a]++;
+        cin >> a[i];
     }
 
-    ll arr[bigest_number]{};
-
-    for (int i = 1; i < bigest_number + 1; i++)
-    {
-        arr[i] = mp[i] + arr[i - 1];
-    }
-    
     for (int i = 0; i < m; i++)
     {
-        ll a;
-        cin >> a;
-        cout << arr[a] << ' ';
+        cin >> b[i];
+    }
+
+    sort (a, a + n);
+
+    for (int i = 0; i < m; i++)
+    {
+        cout << upper_bound(a, a + n, b[i]) - a << ' ';
     }
 
     cout << '\n';

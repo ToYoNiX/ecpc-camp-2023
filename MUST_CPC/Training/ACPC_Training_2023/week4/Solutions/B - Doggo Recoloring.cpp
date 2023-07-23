@@ -5,6 +5,7 @@
 using namespace std;
 int main ()
 {
+    fastio
     ll n;
     cin >> n;
     map <char, ll> mp;
