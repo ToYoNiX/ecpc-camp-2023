@@ -27,14 +27,7 @@ int main ()
         }
     }
 
-    if (st.empty())
-    {
-        cout << "Yes\n";
-    }
-    else
-    {
-        cout << "No\n";
-    }
-
+    char output [][4] = {"No", "Yes"};
+    cout << output[st.empty()] << '\n';
     return 0;
 }
