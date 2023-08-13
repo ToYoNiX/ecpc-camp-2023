@@ -18,14 +18,12 @@ int main ()
             ll n;
             cin >> n;
             que.push(n);
-            continue;
         }
         else if (q == 2)
         {
             if (!que.empty())
             {
                 que.pop();
-                continue;
             }
         }
         else

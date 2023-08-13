@@ -8,58 +8,58 @@ int main ()
     fastio
     int n;
     cin >> n;
-    deque <int> dq1, dq2, dq3;
+    deque <int> neg, pos, zero;
     for (int i = 0; i < n; i++)
     {
         int a;
         cin >> a;
         if (a < 0)
         {
-            dq1.push_back(a);
+            neg.push_back(a);
         }
         else if (a > 0)
         {
-            dq2.push_back(a);
+            pos.push_back(a);
         }
         else
         {
-            dq3.push_back(a);
+            zero.push_back(a);
         }
     }
 
-    if (dq2.empty())
+    if (pos.empty())
     {
-        dq2.push_back(dq1.back());
-        dq1.pop_back();
-        dq2.push_back(dq1.back());
-        dq1.pop_back();
+        pos.push_back(neg.back());
+        neg.pop_back();
+        pos.push_back(neg.back());
+        neg.pop_back();
     }
 
-    if (dq1.size() % 2 == 0)
+    if (neg.size() % 2 == 0)
     {
-        dq3.push_back(dq1.back());
-        dq1.pop_back();
+        zero.push_back(neg.back());
+        neg.pop_back();
     }
 
-    cout << dq1.size();
-    while (!dq1.empty())
+    cout << neg.size();
+    while (!neg.empty())
     {
-        cout << ' ' << dq1.front();
-        dq1.pop_front();
+        cout << ' ' << neg.front();
+        neg.pop_front();
     }
 
-    cout << '\n' << dq2.size();
-    while (!dq2.empty())
+    cout << '\n' << pos.size();
+    while (!pos.empty())
     {
-        cout << ' ' << dq2.front();
-        dq2.pop_front();
+        cout << ' ' << pos.front();
+        pos.pop_front();
     }
 
-    cout << '\n' << dq3.size();
-    while (!dq3.empty())
+    cout << '\n' << zero.size();
+    while (!zero.empty())
     {
-        cout << ' ' << dq3.front();
-        dq3.pop_front();
+        cout << ' ' << zero.front();
+        zero.pop_front();
     }
 
 
