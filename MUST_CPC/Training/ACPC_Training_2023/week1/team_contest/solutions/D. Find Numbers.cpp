@@ -9,7 +9,7 @@ int main ()
     ll s, g;
     cin >> s >> g;
 
-    if (__gcd(s - g, g) == g)
+    if (__gcd(s - g, g) == g && s != g)
     {
         cout << s - g << ' ' << g << '\n';
     }
