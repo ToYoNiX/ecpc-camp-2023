@@ -19,7 +19,6 @@ int main ()
         s = to_string(sum);
         counter++;
     }
-
     cout << counter << '\n';
     return 0;
 }
