@@ -12,31 +12,17 @@ using namespace std;
 string timeConversion(string s) {
     s.pop_back();
     
-    int hour = 0;
-    hour += (s[0] - '0') * 10;
-    hour += (s[1] - '0');
-    
-    if (hour == 12 && s[8] == 'A') {
-        hour = 1;
+    if (s[0] == '1' && s[1] == '2') {
+        if (s[8] == 'A') {
+            s[0] = '0';
+            s[1] = '0';   
+        }
     }
     else if (s[8] == 'P') {
-        hour += 12;
-    }
-    hour = (hour == 24) ? 0 : hour;
-    
-    string t = to_string(hour);
-    if (t.size() == 1) {
-        s[0] = '0';
-        s[1] = t[0];
-    }
-    else {
-        s[0] = t[0];
-        s[1] = t[1];
+        s[0] += 1;
+        s[1] += 2;
     }
     
-
-    cout << t << ' ' << hour << '\n';
-
     s.pop_back();
     return s;
 }
